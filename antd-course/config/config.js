@@ -49,7 +49,7 @@ export default {
                         path: '/dashboard/workplace',
                         component: 'Dashboard/Workplace'
                     },
-
+                    { path: '/dashboard/list', component: '../page/list' }      
 
                 ]
             }
