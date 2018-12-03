@@ -1,0 +1,7 @@
+.normal {
+  margin: 1px;
+}
+
+.normal>i {
+  margin-left: 20px;
+}

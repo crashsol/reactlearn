@@ -1,0 +1,11 @@
+
+.normal {
+  background: #C2F279;
+}
+.content {
+  margin: 10px;
+  text-align: center;  
+}
+.content  button{
+  margin-left: 5px;
+}
