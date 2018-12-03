@@ -10,7 +10,6 @@ const ProductList = ({ onDelete, products }) => {
                 return (
                     <Popconfirm title="Delete?" onConfirm={() => { onDelete(record.id) }} >
                         <Button>Delete</Button>
-
                     </Popconfirm>
                 )
             }
@@ -23,3 +22,4 @@ const ProductList = ({ onDelete, products }) => {
     )
 
 }
+export default  ProductList;
