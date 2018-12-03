@@ -32,3 +32,6 @@
 }
     ```
 # 添加react配置信息
+  -  yarn add react react-dom -S 
+  - 
+ 
