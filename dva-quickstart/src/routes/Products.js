@@ -1,11 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
+import {connect} from 'dva'
+import ProductList from '../components/ProductList'
 
-export default class Products extends Component {
-  render() {
+const Products =({dispatch,products}) =>{
+
+    function handleDelete(id){
+      dispatch({
+        type:'products/delete',
+        payload:id,
+      });
+    }
     return (
       <div>
-         List of Products
+        <h2>List Of Products</h2>
+        <ProductList onDelete={handleDelete} products ={products} ></ProductList>
       </div>
     )
-  }
 }
+export default connect(({ products }) => ({
+  products,
+}))(Products);
