@@ -1,0 +1,20 @@
+{
+  "name": "01",
+  "version": "1.0.0",
+  "description": "- 搭建项目结构\r     - npm init -y \r     - 创建dist和src文件夹\r     - 在src创建index.html和main.js\r     - 添加webpack\r       > yarn add webpack -D\r         yarn add webpack-cli -D",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --open --hot --port 3000 --host 127.0.0.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {}
+}
