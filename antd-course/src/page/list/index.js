@@ -2,6 +2,7 @@ import React, {
     Component
 } from "react";
 
+  import SampleChart from '../../components/SampleChart'
 import {
     Table, Modal, Button, Form, Input
 } from 'antd'
@@ -12,7 +13,8 @@ import {
 const FormItem = Form.Item;
 /* 从  model中获取数据 */
 function mapStateToProps(state) {
-    return {
+    return {      
+        statistic: state.cards.statistic,
         cardsList: state.cards.cardsList,
         cardsLoading: state.loading.effects['cards/queryList']
     }
@@ -22,7 +24,12 @@ function mapStateToProps(state) {
 class List extends Component {
 
     state = {
-        visible: false
+        visible: false,
+    statisticVisible: false,
+    id: null,
+        visible: false,
+        statisticVisible: false,
+        id: null,
     }
     componentDidMount() {
         this.props.dispatch({
@@ -48,7 +55,16 @@ class List extends Component {
         title: '链接',
         dataIndex: 'url',
         render: value => <a href={value}>{value}</a>,
-    }]
+    },
+    {
+        title: '',
+        dataIndex: 'statistic',
+        render: (_, { id }) => {
+          return ( 
+            <Button onClick={() => { this.showStatistic(id); }}>图表</Button>
+          );
+        },
+      }]
 
     handleCancel = () => {
         this.setState({
@@ -75,16 +91,28 @@ class List extends Component {
         })
     }
 
+    showModal = () => {
+        this.setState({ visible: true });
+      };
+    
+      showStatistic = (id) => {
+        this.props.dispatch({
+          type: 'cards/getStatistic',
+          payload: id,
+        });
+        this.setState({ id, statisticVisible: true });
+      };
+
 
     render() {
-
-        const { cardsList, cardsLoading } = this.props;
-        const { visible } = this.state;
+        const { visible, statisticVisible, id } = this.state;
+            
         //从属性中获取创建表单所需的主要函数
-        const { form: { getFieldDecorator } } = this.props;
+        const { cardsList, cardsLoading, form: { getFieldDecorator }, statistic } = this.props;
+        
         return (
             <div>
-                <Table columns={this.columns} dataSource={cardsList}></Table>
+                <Table columns={this.columns} dataSource={cardsList} loading={cardsLoading} rowKey="id"></Table>
                 <br />
                 <br />
                 <Button onClick={this.showModal} type="default">新建记录</Button>
@@ -117,6 +145,10 @@ class List extends Component {
                         </FormItem>
                     </Form>
                 </Modal>
+
+           {/*  <Modal visible={statisticVisible} footer={null} onCancel={this.handleStatisticCancel}>
+                     <SampleChart data={statistic[id]} />
+             </Modal> */}
             </div>
         )
     }

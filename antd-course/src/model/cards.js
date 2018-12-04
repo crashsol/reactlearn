@@ -1,4 +1,4 @@
-import request from '../util/request'
+import * as cardsService from '../service/cards';
 const delay = (millisecond) => {
     return new Promise((resolve) => {
         setTimeout(resolve, millisecond);
@@ -7,7 +7,8 @@ const delay = (millisecond) => {
 export default {
     namespaces: 'cards',
     state: {
-        cards: []
+        cards: [],
+        statistic: {},
     },
     effects: {
         *queryList(_, sagaEffects) {
@@ -29,7 +30,20 @@ export default {
             const { call, put } = sagaEffects;
             yield call(delay, 3000);
             yield put({ type: 'initList', payload: listData });
-        }
+        },
+
+        *getStatistic({ payload }, { call, put }) {
+            const rsp = yield call(cardsService.getStatistic, payload);
+            console.log(rsp);
+            yield put({
+              type: 'saveStatistic',
+              payload: {
+                id: payload,
+                data: rsp.result,
+              },
+            });
+            return rsp;
+          },
     },
 
     reducers: {
@@ -51,7 +65,16 @@ export default {
             return {
                 cardsList
             }
-        }
+        },
+        saveStatistic(state, { payload: { id, data } }) {
+            return {
+              ...state,
+              statistic: {
+                ...state.statistic,
+                [id]: data,
+              },
+            }
+        },
     }
 
 }
