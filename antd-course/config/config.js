@@ -36,6 +36,10 @@ export default {
                 component: 'PuzzleCards'
             },
             {
+                path: '/list',
+                component: 'List'
+            },
+            {
                 path: '/dashboard',
                 routes: [{
                         path: '/dashboard/analysis',
@@ -48,8 +52,7 @@ export default {
                     {
                         path: '/dashboard/workplace',
                         component: 'Dashboard/Workplace'
-                    },
-                    { path: '/dashboard/list', component: '../page/list' }      
+                    }
 
                 ]
             }

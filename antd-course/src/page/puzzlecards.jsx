@@ -41,7 +41,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 /* 将dva管理的状态和组件管理起来 */
-@connect(mapStateToProps, mapDispatchToProps)
 class PuzzleCards extends Component {
     constructor(props) {
         super(props);
@@ -83,4 +82,4 @@ class PuzzleCards extends Component {
     }
 }
 
-export default PuzzleCards;
+export default connect(mapStateToProps, mapDispatchToProps)(PuzzleCards);
