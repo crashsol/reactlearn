@@ -20,6 +20,8 @@ export default class BasicLayout extends Component {
               <Menu.Item key="2"><Link to="/button">Button</Link> </Menu.Item>
               <Menu.Item key="3"><Link to="/icon">Icon</Link> </Menu.Item>
               <Menu.Item key="4"><Link to="/grid">grid</Link> </Menu.Item>
+              <Menu.Item key="5"><Link to="/modal1">modal1</Link> </Menu.Item>
+              <Menu.Item key="6"><Link to="/modal2">modal2</Link> </Menu.Item>
             </SubMenu>
           </Menu>
         </Sider>
