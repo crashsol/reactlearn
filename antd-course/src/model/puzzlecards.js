@@ -6,7 +6,8 @@ const delay = (millisecond) =>{
         setTimeout(resolve, millisecond);
     })
 }
-const endPointURI = 'http://114.116.89.193:8999/test/cardList';
+const endPointURI = 'https://localhost:5001/api/values';
+
 
 
 export default {
