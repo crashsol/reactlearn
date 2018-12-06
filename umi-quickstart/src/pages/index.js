@@ -2,6 +2,7 @@ import styles from './index.css';
 import Welcome from '../components/welcome'
 
 export default function() {
+
   return (
     <div className={styles.normal}>
       <div className={styles.welcome} />
@@ -9,7 +10,10 @@ export default function() {
         <li>To get started, edit <code>src/pages/index.js</code> and save to reload.</li>
         <li><a href="https://umijs.org/guide/getting-started.html">Getting Started</a></li>
       </ul>
-      <Welcome></Welcome>
+      {/* 使用Welcome组件 */}
+      <Welcome username={"crashsol"}
+      message ={2}
+      clickHandle={()=> console.log("antd click")}></Welcome>
     </div>
   );
 }
