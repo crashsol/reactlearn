@@ -24,6 +24,8 @@ export default class BasicLayout extends Component {
               <Menu.Item key="6"><Link to="/modal2">modal2</Link> </Menu.Item>
               <Menu.Item key="7"><Link to="/input1">input</Link> </Menu.Item>
               <Menu.Item key="8"><Link to="/form">form</Link> </Menu.Item>
+              <Menu.Item key="9"><Link to="/treedemo">Tree</Link></Menu.Item>
+              <Menu.Item key="10"><Link to="/rightclick">Tree</Link></Menu.Item>
             </SubMenu>
           </Menu>
         </Sider>
