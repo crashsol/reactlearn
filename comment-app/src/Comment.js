@@ -39,10 +39,20 @@ export default class Comment extends Component {
         : `${Math.round(Math.max(duration, 1))} 秒前`
     })
   }
+  /*代码转义，防止注入攻击 */
+  _getProcessedContent = (content) => {
+    return content
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;")
+      .replace(/`([\S\s]+?)`/g, '<code>$1</code>')
+  }
   handleDeleteComment = () => {
-      console.log(111);
+    console.log(111);
     if (this.props.onDeleteComment) {
-       console.log(this.props.index);
+      console.log(this.props.index);
       this.props.onDeleteComment(this.props.index)
     }
   }
@@ -52,7 +62,10 @@ export default class Comment extends Component {
         <div className='comment-user'>
           <span>{this.props.comment.username} </span>：
       </div>
-        <p>{this.props.comment.content}</p>
+        <p dangerouslySetInnerHTML={{
+          __html: this._getProcessedContent(this.props.comment.content)
+        }}>
+        </p>
         <span className='comment-createdtime'>
           {this.state.timeString}
         </span>
