@@ -3,8 +3,11 @@ import PropTypes from 'prop-types'
 
 /* 评论内容 */
 export default class Comment extends Component {
+  /* 限定传入属性的类型 */
   static propTypes = {
-    comment: PropTypes.object.isRequired
+    comment: PropTypes.object.isRequired,
+    onDeleteComment: PropTypes.func,
+    index: PropTypes.number
   }
   /* 定时器 */
   static timer;
@@ -36,6 +39,13 @@ export default class Comment extends Component {
         : `${Math.round(Math.max(duration, 1))} 秒前`
     })
   }
+  handleDeleteComment = () => {
+      console.log(111);
+    if (this.props.onDeleteComment) {
+       console.log(this.props.index);
+      this.props.onDeleteComment(this.props.index)
+    }
+  }
   render() {
     return (
       <div className='comment'>
@@ -45,6 +55,10 @@ export default class Comment extends Component {
         <p>{this.props.comment.content}</p>
         <span className='comment-createdtime'>
           {this.state.timeString}
+        </span>
+        <span className='comment-delete'
+          onClick={this.handleDeleteComment}>
+          删除
         </span>
       </div>
     )

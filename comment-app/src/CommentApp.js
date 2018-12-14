@@ -41,12 +41,21 @@ export default class CommentApp extends Component {
     /* 数据保存到本地 */
     this._saveComments(comments)
   }
+
+  handleDeleteComment =  (index) => {
+    const comments = this.state.comments
+    comments.splice(index, 1)
+     console.log(111);
+     console.log(comments);
+    this.setState({ comments })
+    this._saveComments(comments)
+  }
   render() {
     return (
       <div className='wrapper'>
         <CommentInput onSubmit={this.handleSubmitComment} />
         {/* 将管理comments传入 CommentList组件 */}
-        <CommentList comments={this.state.comments} />
+        <CommentList comments={this.state.comments} onDeleteComment={this.handleDeleteComment} />
       </div>
     )
   }
