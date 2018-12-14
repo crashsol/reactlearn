@@ -48,7 +48,6 @@ export default class CommentInput extends Component {
 
     // 检查数据合法性
     const { username, content } = this.state
-
     if (!username) {
       alert('请输入用户名')
       return
@@ -57,12 +56,13 @@ export default class CommentInput extends Component {
       alert('请输入评论内容')
       return
     }
-
-
     /* 调用props传入的提交方法 */
     if (this.props.onSubmit) {
-
-      this.props.onSubmit({ username, content })
+      this.props.onSubmit({ 
+        username, 
+        content,
+        createdTime:+new Date()
+       })
     }
     this.setState({
       content: ''
