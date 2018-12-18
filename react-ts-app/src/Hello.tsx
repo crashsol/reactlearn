@@ -6,7 +6,8 @@ export interface Props {
     enthusiasmLevel?: number
 }
 
-function Hello({ name, enthusiasmLevel = 1 }: Props) {
+//#region 使用function 定义组件 
+/*  function Hello({ name, enthusiasmLevel = 1 }: Props) {
     if (enthusiasmLevel <= 0) {
         throw new Error('You could be a little more enthusiastic. :D');
     }
@@ -17,7 +18,31 @@ function Hello({ name, enthusiasmLevel = 1 }: Props) {
             </div>
         </div>
     )
+} */
+//#endregion
+
+//#region 使用 Class 定义组件
+class Hello extends React.Component<Props, object>
+{
+    render() {
+        const { name, enthusiasmLevel = 1 } = this.props
+
+        if (enthusiasmLevel <= 0) {
+            throw new Error('You could be a little more enthusiastic. :D');
+        }
+        return (
+            <div className="hello">
+                <div className='greeting' >
+                    Hello from class {name + getExclamationMarks(enthusiasmLevel)}
+                </div>
+            </div>
+
+        )
+    }
 }
+//#ednregion
+
+
 
 export default Hello;
 
