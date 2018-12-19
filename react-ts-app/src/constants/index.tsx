@@ -1,0 +1,10 @@
+/* 定义 Adding actions */
+
+export const INCREMENT_ENTHUSIASM = 'INCREMENT_ENTHUSIASM';
+/* 自定义类型 */
+export type INCREMENT_ENTHUSIASM = typeof INCREMENT_ENTHUSIASM;
+
+
+export const DECREMENT_ENTHUSIASM = 'DECREMENT_ENTHUSIASM';
+/* 自定义类型 */
+export type DECREMENT_ENTHUSIASM = typeof DECREMENT_ENTHUSIASM;
