@@ -11,7 +11,7 @@ interface State {
     currentEnthusiasm: number;
 }
 /* 具有传入参数，state状态的组件 */
-class Hello extends React.Component<Props, State>
+class StatefulHello extends React.Component<Props, State>
 {
     constructor(props: Props) {
         super(props);
@@ -58,7 +58,7 @@ class Hello extends React.Component<Props, State>
         )
     }
 }
-export default Hello;
+export default StatefulHello;
 
 function getExclamationMarks(numChars: number) {
     return Array(numChars + 1).join('!');

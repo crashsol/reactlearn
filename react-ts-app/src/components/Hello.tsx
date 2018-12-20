@@ -2,25 +2,30 @@ import * as React from 'react'
 
 /* 定义传入参数的类型 */
 export interface Props {
-    name: string,
-    enthusiasmLevel?: number
+    name: string;
+    enthusiasmLevel?: number;
+    onIncrement?:()=>void;
+    onDecrement?:()=>void;
 }
 /* 使用function 创建组件 */
-/* function Hello({ name, enthusiasmLevel = 1 }: Props) {
+ function Hello({ name, enthusiasmLevel = 1 ,onIncrement,onDecrement}: Props) {
     if (enthusiasmLevel <= 0) {
         throw new Error('enthusiasmLevel 参数错误!')
     }
     return (
         <div className='hello'>
+         <p>From Hello Component</p>
             <div className='greeting'>
                 Hello {name + getExclamationMarks(enthusiasmLevel)}
             </div>
+            <button onClick={onIncrement}>+</button>
+            <button onClick={onDecrement}>-</button>
         </div>
     )
 }
- */
+ 
 /* 使用class 类构建组件，但是该组件是无状态组件， */
-class Hello extends React.Component<Props, object>{
+/* class Hello extends React.Component<Props, object>{
     render() {
         const { name, enthusiasmLevel = 1 } = this.props
         if (enthusiasmLevel <= 0) {
@@ -36,7 +41,7 @@ class Hello extends React.Component<Props, object>{
 
     }
 }
-
+ */
 export default Hello;
 
 // helpers
