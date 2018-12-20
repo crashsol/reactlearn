@@ -1,51 +1,43 @@
 import * as React from 'react'
 
-/* 定义Props 类型 */
+/* 定义传入参数的类型 */
 export interface Props {
     name: string,
     enthusiasmLevel?: number
 }
-
-//#region 使用function 定义组件 
-/*  function Hello({ name, enthusiasmLevel = 1 }: Props) {
+/* 使用function 创建组件 */
+/* function Hello({ name, enthusiasmLevel = 1 }: Props) {
     if (enthusiasmLevel <= 0) {
-        throw new Error('You could be a little more enthusiastic. :D');
+        throw new Error('enthusiasmLevel 参数错误!')
     }
     return (
-        <div className="Hello">
-            <div className="greeting">
+        <div className='hello'>
+            <div className='greeting'>
                 Hello {name + getExclamationMarks(enthusiasmLevel)}
             </div>
         </div>
     )
-} */
-//#endregion
-
-//#region 使用 Class 定义组件
-class Hello extends React.Component<Props, object>
-{
+}
+ */
+/* 使用class 类构建组件，但是该组件是无状态组件， */
+class Hello extends React.Component<Props, object>{
     render() {
         const { name, enthusiasmLevel = 1 } = this.props
-
         if (enthusiasmLevel <= 0) {
             throw new Error('You could be a little more enthusiastic. :D');
         }
         return (
             <div className="hello">
-                <div className='greeting' >
-                    Hello from class {name + getExclamationMarks(enthusiasmLevel)}
+                <div className="greeting">
+                    Hello {name + getExclamationMarks(enthusiasmLevel)}
                 </div>
             </div>
+        );
 
-        )
     }
 }
-//#ednregion
-
-
 
 export default Hello;
-
 
 // helpers
 
