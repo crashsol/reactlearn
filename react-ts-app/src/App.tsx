@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './App.css';
-import Hello from './Hello'
+import StatefulHello from './components/StatefulHello'
 
 import logo from './logo.svg';
 
@@ -15,7 +15,7 @@ class App extends React.Component {
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <Hello name={'asdf'} enthusiasmLevel={3} ></Hello>
+        <StatefulHello name={'asdf'} enthusiasmLevel={3} ></StatefulHello>
       </div>
     );
   }
