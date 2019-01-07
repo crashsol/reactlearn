@@ -6,7 +6,7 @@ const home = props => {
   return (
     <Row>
       <Col md={12}>
-        <div className={"homeText"}>WELCOME TO ACCOUNT-OWNER APPLICATION</div>
+        <div className={"homeText"}>123123123</div>
       </Col>
     </Row>
   );

@@ -1,9 +1,12 @@
 import React from "react";
 import { Grid, Row } from "react-bootstrap";
+import Navigation from "../Navigation/Navigation";
 export default function layout(props) {
   return (
     <Grid>
-      <Row>This is the Place for Navigation Components;</Row>
+      <Row>
+        <Navigation />
+      </Row>
       <main>{props.children}</main>
     </Grid>
   );
