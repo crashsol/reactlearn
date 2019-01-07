@@ -1,7 +1,8 @@
 .homeText {
     font-size: 35px;
     color: red;
-    margin: 0 auto;
+    position: relative;
+    text-align: center;
     top: 30px;
     text-shadow: .125rem .125rem .125rem gray;
 }
